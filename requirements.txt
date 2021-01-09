@@ -1,0 +1,7 @@
+webdriver-manager==3.2.2
+selenium==3.141.0
+speechrecognition==3.8.1
+pydub==0.24.1
+ffmpeg==1.4
+ffmpy==0.2.3
+FFProbe==0.5
