@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import os
 import platform
-
 # selenium libraries
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException, WebDriverException
@@ -20,7 +19,7 @@ SOUND_FOLDER = os.getcwd()+'\\' if (platform.system() == 'Windows') else os.getc
 LANG_EN = 'en-EN'
 
 
-class Authorization:
+class Authentication:
     def __init__(self, path_chrome_driver, lang=LANG_EN, headless=True):
         try:
             # create chrome driver
