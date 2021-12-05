@@ -19,3 +19,4 @@ def wait_for_id(driver, id, seconds):
     w = WebDriverWait(driver=driver, timeout=seconds)
     tag = EC.presence_of_element_located((By.ID, id))
     w.until(tag, message='[ERROR] expected component id {}'.format(id))
+
