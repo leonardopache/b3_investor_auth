@@ -38,17 +38,17 @@ class Authentication:
         # go to login page
         delay(40)
         # complete login fields
-        wait_for_id(driver=self.driver, id='extension_DocInput', seconds=TIMEOUT_SECONDS)
-        login = self.driver.find_element_by_id('extension_DocInput')
+        wait_for_id(driver=self.driver, id='DOC_INPUT', seconds=TIMEOUT_SECONDS)
+        login = self.driver.find_element_by_id('DOC_INPUT')
         #login.clear()
         login.send_keys(user)
 
-        wait_for_id(driver=self.driver, id='continue', seconds=TIMEOUT_SECONDS)
-        wizard_1 = self.driver.find_element_by_id('continue')
+        wait_for_id(driver=self.driver, id='Btn_CONTINUE', seconds=TIMEOUT_SECONDS)
+        wizard_1 = self.driver.find_element_by_id('Btn_CONTINUE')
         wizard_1.click()
 
-        wait_for_id(driver=self.driver, id='password', seconds=TIMEOUT_SECONDS)
-        login = self.driver.find_element_by_id('password')
+        wait_for_id(driver=self.driver, id='PASS_INPUT', seconds=TIMEOUT_SECONDS)
+        login = self.driver.find_element_by_id('PASS_INPUT')
         #login.clear()
         login.send_keys(pwd)
 
@@ -58,12 +58,13 @@ class Authentication:
         
         # solve recaptcha
         # click on checkbox to activate recaptcha
+        wait_for_id(driver=self.driver, id='recaptcha-anchor', seconds=TIMEOUT_SECONDS)
         self.driver.find_element_by_class_name('recaptcha-checkbox-border').click()
         delay(40)
         self.driver.switch_to.default_content()
         # login
-        self.driver.find_element_by_id('continue').click()
-        wait_for_id(driver=self.driver, id='right-sidenav', seconds=TIMEOUT_SECONDS)
+        self.driver.find_element_by_id('Btn_CONTINUE').click()
+        wait_for_id(driver=self.driver, id='b3i-conteudo', seconds=TIMEOUT_SECONDS)
         payload = {}
         payload['token'] = self.driver.execute_script("return sessionStorage.getItem('token');")
         payload['cache-guid'] = self.driver.execute_script("return sessionStorage.getItem('cache-guid');")
